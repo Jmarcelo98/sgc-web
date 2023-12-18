@@ -13,7 +13,7 @@
 
         <button mat-icon-button disabled></button>
 
-        <a (click)="navigateToPage(node)">{{node.name}}</a>
+        <a (click)="findRouterLinkByTitle(node.name, dataSource.data)">{{node.name}}</a>
 
       </mat-tree-node>
 

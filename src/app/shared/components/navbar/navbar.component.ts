@@ -39,18 +39,25 @@ export class NavbarComponent {
     };
   };
 
-  navigateToPage(menu: ExampleFlatNode) {
+  findRouterLinkByTitle = (titleToFind: string, menuItems: any): string => {
 
-    console.log('ao clicar: ',menu);
     
-
-    var teste = TREE_DATA.filter(m => m.title === menu.name);
-
-    console.log(teste)
-
-    // alert(teste)
-    // this.router.navigate([menu.routerLink])
-  }
+    for (const menuItem of menuItems) {
+      if (menuItem.title === titleToFind) {
+        return menuItem.routerLink || ''; // Retorna o routerLink ou uma string vazia se não houver
+      }
+  
+      if (menuItem.children && menuItem.children.length > 0) {
+        const childResult = this.findRouterLinkByTitle(titleToFind, menuItem.children);
+        if (childResult) {
+          return childResult;
+        }
+      }
+    }
+  
+    return ''; // Retorna uma string vazia se o item com o título especificado não for encontrado
+    
+  };
 
 
   treeControl = new FlatTreeControl<ExampleFlatNode>(
