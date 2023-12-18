@@ -1,6 +1,6 @@
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasExampleLabel">SGC JMRSports
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">{{title}}
       <mat-divider></mat-divider>
     </h5>
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -33,13 +33,14 @@
 
 <mat-drawer-container class="example-container" autosize>
 
-  <div class="example-sidenav-content">
+  <button mat-icon-button type="button" class="menu" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+    aria-controls="offcanvasExample" title="Menu">
+    <mat-icon>menu</mat-icon>
+  </button>
 
-    <button mat-icon-button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
-      aria-controls="offcanvasExample" title="Menu">
-      <mat-icon>menu</mat-icon>
-    </button>
+  <button class="profile" mat-icon-button type="button" (click)="login()" title="Acessar perfil">
+    <mat-icon>person</mat-icon>
+  </button>
 
-  </div>
 
 </mat-drawer-container>

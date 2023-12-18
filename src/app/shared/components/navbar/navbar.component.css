@@ -6,3 +6,12 @@
 a {
   cursor: pointer;
 }
+
+.menu {
+  margin-left: 20px;
+}
+
+.profile {
+  float: right;
+  margin-right: 5%;
+}

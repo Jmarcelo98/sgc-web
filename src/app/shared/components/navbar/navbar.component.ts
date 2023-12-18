@@ -27,6 +27,8 @@ const TREE_DATA: MenuNode[] = MenuItemsConfig;
 
 export class NavbarComponent {
 
+  title = "SGC JMSports"
+
   constructor(private router: Router) {
     this.dataSource.data = TREE_DATA;
   }
@@ -75,5 +77,9 @@ export class NavbarComponent {
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
 
   hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
+
+  login() {
+    this.router.navigate(['/profile'])
+  }
 
 }
