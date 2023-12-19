@@ -5,10 +5,8 @@
 
 a {
   all: unset;
-}
-
-#link {
   cursor: pointer;
+
 }
 
 .menu {

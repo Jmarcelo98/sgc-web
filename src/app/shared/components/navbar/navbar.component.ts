@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { MenuItemsConfig } from './menu-items.config';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
 import { FlatTreeControl } from '@angular/cdk/tree';
-import { Router } from '@angular/router';
 
 interface MenuNode {
   title: string;
@@ -15,6 +14,7 @@ interface ExampleFlatNode {
   expandable: boolean;
   name: string;
   level: number;
+  routerLink: any;
 }
 
 const TREE_DATA: MenuNode[] = MenuItemsConfig;
@@ -29,7 +29,7 @@ export class NavbarComponent {
 
   title = "SGC JMSports"
 
-  constructor(private router: Router) {
+  constructor() {
     this.dataSource.data = TREE_DATA;
   }
 
@@ -38,29 +38,9 @@ export class NavbarComponent {
       name: node.title,
       level: level,
       expandable: !!node.children && node.children.length > 0,
+      routerLink: node.routerLink
     };
   };
-
-  findRouterLinkByTitle = (titleToFind: string, menuItems: any): string => {
-
-    
-    for (const menuItem of menuItems) {
-      if (menuItem.title === titleToFind) {
-        return menuItem.routerLink || ''; // Retorna o routerLink ou uma string vazia se não houver
-      }
-  
-      if (menuItem.children && menuItem.children.length > 0) {
-        const childResult = this.findRouterLinkByTitle(titleToFind, menuItem.children);
-        if (childResult) {
-          return childResult;
-        }
-      }
-    }
-  
-    return ''; // Retorna uma string vazia se o item com o título especificado não for encontrado
-    
-  };
-
 
   treeControl = new FlatTreeControl<ExampleFlatNode>(
     node => node.level,
@@ -74,12 +54,8 @@ export class NavbarComponent {
     node => node.children,
   );
 
-  dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
+  dataSource = new MatTreeFlatDataSource(this.treeControl as any, this.treeFlattener);
 
   hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
-
-  login() {
-    this.router.navigate(['/profile'])
-  }
 
 }
