@@ -4,6 +4,10 @@
 }
 
 a {
+  all: unset;
+}
+
+#link {
   cursor: pointer;
 }
 
