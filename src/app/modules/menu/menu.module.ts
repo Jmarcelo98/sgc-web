@@ -12,11 +12,14 @@ import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { ListMenuComponent } from './list-menu/list-menu.component';
+import { MatDividerModule } from '@angular/material/divider';
 
 
 @NgModule({
   declarations: [
-    MenuComponent
+    MenuComponent,
+    ListMenuComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +30,8 @@ import { MatIconModule } from '@angular/material/icon';
     ReactiveFormsModule,
     MatRadioModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatDividerModule
   ]
 })
 export class MenuModule { }

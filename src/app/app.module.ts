@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarModule } from './shared/components/navbar/navbar.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { NavbarModule } from './shared/components/navbar/navbar.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    NavbarModule
+    NavbarModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

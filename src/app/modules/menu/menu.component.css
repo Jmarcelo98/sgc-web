@@ -14,3 +14,8 @@ mat-form-field {
 .mat-mdc-radio-button~.mat-mdc-radio-button {
     margin-left: 16px;
 }
+
+mat-divider {
+    margin-top: 15px;
+    margin-bottom: 15px ;
+}
