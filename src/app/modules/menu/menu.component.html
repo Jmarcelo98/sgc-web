@@ -36,6 +36,8 @@
 
 <mat-divider/>
 
-<div>
-    <app-list-menu [list]="menus"></app-list-menu>
+<div *ngIf="menus.content.length">
+    <app-list-menu [list]="menus.content"></app-list-menu>
+    <app-pageable (page)="pageClick($event)" [pageIndex]="paginator.pageIndex" [pageSize]="paginator.pageSize"
+    [totalElements]="paginator.totalElements!"></app-pageable>
 </div>

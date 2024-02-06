@@ -1,5 +1,6 @@
 import { HttpParams } from "@angular/common/http";
 import { environment } from "../../../environments/environment";
+import { IPaginator } from "../components/pageable/pageable.component";
 
 
 const baseUrl = environment.apiUrl;
@@ -58,12 +59,12 @@ export class BaseService {
 
     }
 
-    // setPageToHttpParam(page: IPaginator): HttpParams {
-    //     var params = new HttpParams()
-    //         .set('page', page ? page.pageIndex.toString() : '0')
-    //         .set('size', page ? page.pageSize.toString() : '10')
-    //     return params;
-    // }
+    setPageToHttpParam(page: IPaginator): HttpParams {
+        var params = new HttpParams()
+            .set('page', page ? page.pageIndex.toString() : '0')
+            .set('size', page ? page.pageSize.toString() : '10')
+        return params;
+    }
 
 }
 

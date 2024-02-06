@@ -15,6 +15,8 @@ export class ListMenuComponent implements OnInit{
 
   ngOnInit(): void {
 
+    console.log(this.list);
+    
 
 
   }

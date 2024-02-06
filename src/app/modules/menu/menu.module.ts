@@ -14,6 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ListMenuComponent } from './list-menu/list-menu.component';
 import { MatDividerModule } from '@angular/material/divider';
+import { PageableModule } from 'src/app/shared/components/pageable/pageable.module';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { MatDividerModule } from '@angular/material/divider';
     ListMenuComponent
   ],
   imports: [
+    PageableModule,
     CommonModule,
     MenuRoutingModule,
     MatFormFieldModule,
