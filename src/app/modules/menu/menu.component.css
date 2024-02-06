@@ -1,0 +1,21 @@
+mat-radio-group {
+    display: block;
+    margin-top: 5px;
+}
+
+mat-form-field {
+    margin-top: 10px;
+}
+
+.full-width-form-field {
+    width: 100%;
+}
+
+.mat-mdc-radio-button~.mat-mdc-radio-button {
+    margin-left: 16px;
+}
+
+mat-divider {
+    margin-top: 15px;
+    margin-bottom: 15px ;
+}
