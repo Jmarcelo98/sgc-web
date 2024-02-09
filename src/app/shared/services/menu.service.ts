@@ -9,7 +9,7 @@ import { Paginator } from 'src/app/core/models/interface/Paginator';
 export class MenuService extends BaseService {
 
   constructor(private http: HttpClient) {
-    super('/menu')
+    super('/menus')
   }
 
   getAllByFilter(form: any, paginator: Paginator) {
