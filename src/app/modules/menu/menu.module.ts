@@ -14,13 +14,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ListMenuComponent } from './list-menu/list-menu.component';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatTableModule } from '@angular/material/table';
 import { PageableModule } from 'src/app/shared/components/pageable/pageable.module';
+import { ViewMenuComponent } from './view-menu/view-menu.component';
 
 
 @NgModule({
   declarations: [
     MenuComponent,
-    ListMenuComponent
+    ListMenuComponent,
+    ViewMenuComponent
   ],
   imports: [
     PageableModule,
@@ -33,7 +36,8 @@ import { PageableModule } from 'src/app/shared/components/pageable/pageable.modu
     MatRadioModule,
     MatButtonModule,
     MatIconModule,
-    MatDividerModule
+    MatDividerModule,
+    MatTableModule
   ]
 })
 export class MenuModule { }

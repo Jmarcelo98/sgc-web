@@ -21,4 +21,6 @@ export class ListMenuComponent implements OnInit{
 
   }
 
+  public displayedColumns: string[] = ['name', 'acao'];
+
 }

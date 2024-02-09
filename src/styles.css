@@ -1,2 +1,82 @@
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+:root {
+
+    /* cores */
+    --color-main: rgba(81, 196, 241, 0.754);
+    --color-black: black;
+    --color-edit: rgb(37, 221, 112);
+    --color-delete: rgb(231, 88, 88);
+    --color-cancel-edit: rgb(217, 215, 215);
+    --color-text-cancel-edit: rgb(80, 71, 71);
+
+    /* sombra */
+    --box-shadow: 0px 3px 24px -6px rgba(0, 0, 0, 0.3);
+
+}
+
+
+/* padrao tabela */
+table {
+    box-shadow: var(--box-shadow) !important;
+}
+
+ng-container,
+th {
+    font-weight: bold !important;
+    font-size: 20px !important;
+    font-family: monospace !important;
+}
+
+ng-container,
+td {
+    padding: 20px 20px !important;
+}
+
+/* padrao formulario */
+mat-radio-group {
+    display: block;
+    margin-top: 5px;
+}
+
+mat-form-field {
+    margin-top: 10px;
+}
+
+.full-width-form-field {
+    width: 100%;
+}
+
+.mat-mdc-radio-button~.mat-mdc-radio-button {
+    margin-left: 16px;
+}
+
+/* padrao botao */
+.button-main-action {
+    background-color: var(--color-main) !important;
+    color: var(--color-black) !important;
+}
+
+.button-edit-action {
+    background-color: var(--color-edit) !important;
+    color: var(--color-black) !important;
+}
+
+.button-delete-action {
+    background-color: var(--color-delete) !important;
+    color: var(--color-black) !important;
+}
+
+.button-cancel-action {
+    background-color: var(--color-cancel-edit) !important;
+    color: var(--color-text-cancel-edit) !important;
+}

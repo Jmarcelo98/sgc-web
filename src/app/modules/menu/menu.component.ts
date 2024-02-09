@@ -15,14 +15,12 @@ export class MenuComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private menuService: MenuService) {
     this.menus = this.activatedRoute.snapshot.data.menuResolver;
-    console.log(this.menus);
-
   }
 
   paginator: Paginator = {
     pageIndex: 0,
     totalElements: 0,
-    pageSize: 4,
+    pageSize: 5,
   }
 
   menus: any;
@@ -34,7 +32,7 @@ export class MenuComponent implements OnInit {
 
 
   formFilter = new FormGroup({
-    active: new FormControl(null, []),
+    isActive: new FormControl(true, []),
     name: new FormControl(null, []),
   });
 
@@ -44,8 +42,6 @@ export class MenuComponent implements OnInit {
       this.paginator.pageIndex = res.number;
       this.paginator.totalElements = res.totalElements;
       this.menus = res
-      console.log('consulta: ' + this.menus);
-
     })
 
   }

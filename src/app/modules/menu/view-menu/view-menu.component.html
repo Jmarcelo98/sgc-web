@@ -1,0 +1,101 @@
+<div class="row">
+
+    <div class="col-md-10 col-8">
+        <h3>{{menu?.name}}</h3>
+    </div>
+
+    <div class="col-md-1 col-2" *ngIf="clickEdit">
+        <button class="button-main-action" mat-icon-button title="Atualizar" (click)="update()">
+            <mat-icon>save</mat-icon>
+        </button>
+    </div>
+
+    <div class="col-md-1 col-2" *ngIf="clickEdit">
+        <button class="button-cancel-action" mat-icon-button title="Cancelar edição" (click)="cancelEdit()">
+            <mat-icon>cancel</mat-icon>
+        </button>
+    </div>
+
+
+    <div class="col-md-1 col-2" *ngIf="!clickEdit">
+        <button class="button-edit-action" mat-icon-button title="Editar menu" (click)="enableEdit()">
+            <mat-icon>edit</mat-icon>
+        </button>
+    </div>
+
+    <div class="col-md-1 col-2" *ngIf="!clickEdit">
+        <button class="button-delete-action" mat-icon-button title="Deletar menu">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-12">
+
+        <form [formGroup]="formView">
+
+            <div class="row">
+
+                <div class="col-6">
+                    <mat-label>Nome</mat-label>
+                    <mat-form-field class="full-width-form-field" appearance="outline">
+                        <input matInput name="name" formControlName="name">
+                    </mat-form-field>
+                </div>
+
+                <div class="col-6">
+                    <mat-label>Ativo</mat-label>
+
+                    <mat-radio-group aria-label="Menu ativo" name="isActive" formControlName="isActive"
+                        [disabled]="!clickEdit">
+                        <mat-radio-button [value]="true">Sim</mat-radio-button>
+                        <mat-radio-button [value]="false">Não</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<mat-divider></mat-divider>
+
+<div class="row" *ngIf="menu.subMenus.length > 0">
+
+    <h3>Sub Menus</h3>
+
+    <div class="col-12">
+
+        <table mat-table [dataSource]="menu?.subMenus" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef>Título</th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+            <ng-container matColumnDef="acao">
+                <th mat-header-cell *matHeaderCellDef>Ação</th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-button [routerLink]="element.id" title="Visualizar Menu">
+                        <mat-icon>keyboard_arrow_right</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
