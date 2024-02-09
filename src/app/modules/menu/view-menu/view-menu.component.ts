@@ -12,14 +12,12 @@ export class ViewMenuComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private menuService: MenuService) {
     this.menu = this.activatedRoute.snapshot.data.viewMenuResolver;
-    console.log(this.menu);
-
   }
 
   formView = new FormGroup({
-    id: new FormControl(null, []),
+    id: new FormControl(null, [Validators.required]),
     dateCreated: new FormControl(null, [Validators.required]),
-    dateUpdate: new FormControl(null, []),
+    dateUpdate: new FormControl(new Date(), []),
     isActive: new FormControl(null, [Validators.required]),
     name: new FormControl(null, [Validators.required]),
     sort: new FormControl(null, [Validators.required]),
@@ -55,6 +53,21 @@ export class ViewMenuComponent implements OnInit {
   }
 
   update() {
+
+    if(this.formView.valid) {
+
+      this.formView.controls['dateUpdate'].setValue(new Date())
+
+      this.menuService.update(this.formView.getRawValue()).subscribe( res => {
+        
+        window.location.reload()
+
+      }, err => {
+        console.log(err);
+        
+      })
+
+    }    
 
   }
 

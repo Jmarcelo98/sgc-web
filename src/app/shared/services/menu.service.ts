@@ -12,11 +12,6 @@ export class MenuService extends BaseService {
     super('/menu')
   }
 
-  findAllByActive(isActive: boolean, paginator: Paginator) {
-    var params = this.setPageToHttpParam(paginator)
-    return this.http.get<any>(`${this.endPoint}/active/${isActive}`, { params: params })
-  }
-
   getAllByFilter(form: any, paginator: Paginator) {
     var params = this.setPageToHttpParam(paginator)
     return this.http.post<any>(`${this.endPoint}/filter`, form, { params: params })
@@ -24,6 +19,10 @@ export class MenuService extends BaseService {
 
   findById(id: number) {
     return this.http.get<any>(`${this.endPoint}/${id}`)
+  }
+
+  update(form: any) {
+    return this.http.patch<any>(`${this.endPoint}`, form);
   }
 
 }

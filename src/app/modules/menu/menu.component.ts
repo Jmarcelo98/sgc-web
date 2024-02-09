@@ -38,7 +38,7 @@ export class MenuComponent implements OnInit {
 
   search() {
 
-    this.menuService.findAllByActive(true, this.paginator).subscribe(res => {
+    this.menuService.getAllByFilter(this.formFilter.getRawValue(), this.paginator).subscribe(res => {
       this.paginator.pageIndex = res.number;
       this.paginator.totalElements = res.totalElements;
       this.menus = res
