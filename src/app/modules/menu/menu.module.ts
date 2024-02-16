@@ -17,13 +17,16 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
 import { PageableModule } from 'src/app/shared/components/pageable/pageable.module';
 import { ViewMenuComponent } from './view-menu/view-menu.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { NewMenuComponent } from './new-menu/new-menu.component';
 
 
 @NgModule({
   declarations: [
     MenuComponent,
     ListMenuComponent,
-    ViewMenuComponent
+    ViewMenuComponent,
+    NewMenuComponent
   ],
   imports: [
     PageableModule,
@@ -37,7 +40,8 @@ import { ViewMenuComponent } from './view-menu/view-menu.component';
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
-    MatTableModule
+    MatTableModule,
+    DragDropModule
   ]
 })
 export class MenuModule { }

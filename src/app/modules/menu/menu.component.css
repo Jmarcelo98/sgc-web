@@ -3,15 +3,6 @@ mat-divider {
     margin-bottom: 15px;
 }
 
-.div {
-    width: 50%;
-    height: 100px;
-    background-color: #6495ED;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-    padding:10px;
-    cursor: move;
-  }
+.new {
+    text-align-last: right;
+}
